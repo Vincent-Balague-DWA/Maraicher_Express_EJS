@@ -1,0 +1,26 @@
+<%- include('./partials/header.ejs') %>
+    <h1 class="page-title">Au Chouette Maraîcher</h1>
+    <div class="page-main">
+      <section class="segment">
+        <div class="segment-title segment-title--action">
+          <h2>Tous les produits</h2>
+          <label class="small-hidden">
+            Produits par ligne 
+            <select>
+              <option value="2">2</option>
+              <option selected value="4">4</option>
+            </select>
+          </label>
+        </div>
+        <div class="segment-cards segment-cards--4">
+            <% for(produit of product){ %>
+                <article class="card">
+                    <img class="card-img" src="/img/products/<%= produit.slug %>.jpg" alt="">
+                    <h3 class="card-title"><%= produit.title %></h3>
+                    <a class="card-action btn" href="/product/<%= produit.slug %>" aria-label="Voir le détail du produit <%= produit.title %>">Voir le détail</a>
+                </article>
+           <% } %>
+        </div>
+
+<%- include('./partials/aside.ejs') %>
+<%- include('./partials/footer.ejs') %>
